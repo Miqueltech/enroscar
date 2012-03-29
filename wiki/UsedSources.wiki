@@ -1,0 +1,12 @@
+#summary We'd like to thank these projects and authors who inspired us and whose solutions are used in our library
+
+|| *Class or package name* || *Notes* ||
+|| Base64 || Original source home page: http://iharder.sourceforge.net/current/java/base64/. It was adapted to our internal checkstyle rules. Old Android API versions did not have such a class.  ||
+|| com.stanfy.http.multipart || Taken from Android sources (not public API) and adapted to our internal checkstyle rules. It's used for sending multipart requests. ||
+|| NotifyingAsyncQueryHandler || Taken from [http://code.google.com/p/iosched Google IO Schedule project] and a bit extended. Really useful thing. ||
+|| CoverFlow || Idea is taken from http://www.inter-fuser.com/2010/02/android-coverflow-widget-v2.html ||
+|| com.stanfy.views.qa || Quick actions widgets implementation idea is inspired by a great [http://greendroid.cyrilmottier.com/ GreenDroid library]. ||
+|| com.google.android.c2dm || Taken from [http://code.google.com/p/chrometophone/ Chrome to Phone project] ||
+|| com.stanfy.integration.sherlock || Based on [https://github.com/JakeWharton/ActionBarSherlock ActionBarSherlock] classes ||
+
+*If you are an author of fragments of code used in this library and have any complains, please do not hesitate to contact us.*

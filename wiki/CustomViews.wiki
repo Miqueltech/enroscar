@@ -1,0 +1,9 @@
+#summary Brief description of custom views included to the library
+
+ * Library includes Gallery widget which was made by rewriting standard Android one. It can recycle views which prevents a lot of garbage collector calls and make gallery animation smoother.
+ * ListView and Gallery widgets from the library notify application when they start scrolling, and application can postpone actions that can affect animation till scrolling is finished. 
+ * Custom ImageView widget can use decorators to modify image that is displayed. The simplest case is setting 'radius' attribute value for applying MaskImageDecorator to round view corners.
+ * 'Loadable' widgets can display images loaded from remote servers over HTTP using special images manager provided by the library. This images manager reacts on list view or gallery widgets scrolling and pauses images fetching till animation is finished. 
+ * Library provides FetchingListFragment class that is designed to facilitate implementing dynamic list pattern. It also reacts on list view scrolling and does not add new elements to the list till animation is finished.
+ * Custom ListView, ScrollView and HorizontalScrollView widgets can automatically maintain its scroll position during screen orientation changes.
+ * ScrollView and HorizontalScrollView can easily replace each other in different layouts for landscape and portrait screen orientation. Application https://market.android.com/details?id=com.obozrevatel shows it in action. Tabs bar is maintained with these widgets.

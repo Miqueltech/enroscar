@@ -1,0 +1,10 @@
+#summary ActionBarSherlock integration
+#labels Featured
+
+= Integration with ActionBarSherlock library =
+
+ # Setup Enroscar library (see [ProjectSetup])
+ # [http://actionbarsherlock.com/usage.html Include ActionBarSherlock library to your project]
+ # Download [http://code.google.com/p/enroscar/downloads/detail?name=enroscar-sources-0.2.zip integration jar]
+ # Add integration jar to your project libs directory
+ # Use [http://code.google.com/p/enroscar/source/browse/trunk/integration/actionbarsherlock/enroscar-sherlock-integration/src/com/stanfy/integration/sherlock/SherlockFragmentActivity.java SherlockFragmentActivity] and [http://code.google.com/p/enroscar/source/browse/trunk/integration/actionbarsherlock/enroscar-sherlock-integration/src/com/stanfy/integration/sherlock/SherlockFragment.java SherlockFragment] from the provided jar
