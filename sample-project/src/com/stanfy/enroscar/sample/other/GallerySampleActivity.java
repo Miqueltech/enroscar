@@ -1,17 +1,18 @@
-package com.stanfy.enroscar.test.samples;
+package com.stanfy.enroscar.sample.other;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.stanfy.enroscar.test.R;
-import com.stanfy.enroscar.test.R.drawable;
+import com.stanfy.enroscar.sample.R;
 import com.stanfy.views.gallery.Gallery;
 
 /**
@@ -27,7 +28,14 @@ public class GallerySampleActivity extends Activity {
     super.onCreate(savedInstanceState);
     final Gallery gallery = new Gallery(this);
     gallery.setAdapter(new Adapter());
-    setContentView(gallery);
+    final LinearLayout mainLayout = new LinearLayout(this);
+    final TextView description = new TextView(this);
+    description.setAutoLinkMask(Linkify.WEB_URLS);
+    description.setText(R.string.gallerydemo_description);
+    mainLayout.addView(description, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+    mainLayout.addView(gallery, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+    mainLayout.setOrientation(LinearLayout.VERTICAL);
+    setContentView(mainLayout);
     gallery.setSelection(0);
   }
 
@@ -47,15 +55,15 @@ public class GallerySampleActivity extends Activity {
       TextView view = null;
       if (convertView != null) {
         view = (TextView)convertView;
-        Log.d("123123", "Use convert view " + position + " / " + view.getText());
+        Log.d("Enroscar", "Use convert view. Position: " + position + ", old position: " + view.getText());
       } else {
         view = new TextView(GallerySampleActivity.this);
         view.setLayoutParams(new Gallery.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         view.setGravity(Gravity.CENTER);
-        Log.d("123123", "Create " + position);
+        Log.d("Enroscar", "Create " + position);
       }
       view.setText(getItem(position));
-      view.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon, 0, 0);
+      view.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_launcher, 0, 0);
       return view;
     }
 
