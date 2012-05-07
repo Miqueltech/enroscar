@@ -28,8 +28,11 @@ import com.stanfy.app.BaseFragment;
 import com.stanfy.views.R;
 
 /**
- * Fragment that displays the video player.
+ * Fragment that displays the video player. This fragment uses {@link VideoView} in order to play video.
+ * Take into account that fact that {@link VideoView} releases a media player instance when video surface is destroyed.
+ * It imposes the fact that after stopping and restarting this fragment video playback is also restarted.
  * @author Roman Mazur (Stanfy - http://www.stanfy.com)
+ * @author Michael Pustovit (Stanfy - http://www.stanfy.com)
  */
 public class VideoPlayFragment extends BaseFragment<Application> implements OnPreparedListener, OnErrorListener, OnCompletionListener {
 
@@ -130,6 +133,7 @@ public class VideoPlayFragment extends BaseFragment<Application> implements OnPr
   @Override
   public void onResume() {
     super.onResume();
+    videoView.start();
     if (wifiLock != null && !completed) {
       wifiLock.acquire();
     }
@@ -139,11 +143,14 @@ public class VideoPlayFragment extends BaseFragment<Application> implements OnPr
   public void onStart() {
     super.onStart();
     getOwnerActivity().setVolumeControlStream(AudioManager.STREAM_MUSIC);
+    // XXX if fragments start a new surface is created for video view and playback restarts
+    progress.setVisibility(View.VISIBLE);
   }
 
   @Override
   public void onPause() {
     super.onPause();
+    videoView.pause();
     if (wifiLock != null && wifiLock.isHeld()) {
       wifiLock.release();
     }
@@ -226,7 +233,12 @@ public class VideoPlayFragment extends BaseFragment<Application> implements OnPr
       super.onDismiss(dialog);
       getOwnerActivity().finish();
     }
-
   }
 
+  /**
+   * @return the fragment video view
+   */
+  public VideoView getVideoView() {
+    return videoView;
+  }
 }
