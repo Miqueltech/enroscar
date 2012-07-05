@@ -22,7 +22,6 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.stanfy.DebugFlags;
-import com.stanfy.app.Application;
 import com.stanfy.app.BaseDialogFragment;
 import com.stanfy.app.BaseFragment;
 import com.stanfy.views.R;
@@ -34,7 +33,7 @@ import com.stanfy.views.R;
  * @author Roman Mazur (Stanfy - http://www.stanfy.com)
  * @author Michael Pustovit (Stanfy - http://www.stanfy.com)
  */
-public class VideoPlayFragment extends BaseFragment<Application> implements OnPreparedListener, OnErrorListener, OnCompletionListener {
+public class VideoPlayFragment extends BaseFragment implements OnPreparedListener, OnErrorListener, OnCompletionListener {
 
   /** Logging tag. */
   private static final String TAG = "VideoFragment";
@@ -132,7 +131,7 @@ public class VideoPlayFragment extends BaseFragment<Application> implements OnPr
     videoView.setOnPreparedListener(this);
     videoView.setOnErrorListener(this);
     videoView.setOnCompletionListener(this);
-    this.controller = new MediaController(getOwnerActivity());
+    this.controller = new MediaController(getActivity());
     videoView.setMediaController(controller);
     return view;
   }
@@ -146,7 +145,7 @@ public class VideoPlayFragment extends BaseFragment<Application> implements OnPr
   @Override
   public void onStart() {
     super.onStart();
-    getOwnerActivity().setVolumeControlStream(AudioManager.STREAM_MUSIC);
+    getActivity().setVolumeControlStream(AudioManager.STREAM_MUSIC);
     // XXX if fragments start a new surface is created for video view and playback restarts
     progress.setVisibility(View.VISIBLE);
   }
@@ -201,7 +200,7 @@ public class VideoPlayFragment extends BaseFragment<Application> implements OnPr
     if (wifiLock != null && wifiLock.isHeld()) {
       wifiLock.release();
     }
-    if (finishOnComplete) { getOwnerActivity().finish(); }
+    if (finishOnComplete) { getActivity().finish(); }
   }
 
   /**
@@ -235,14 +234,14 @@ public class VideoPlayFragment extends BaseFragment<Application> implements OnPr
    * Error dialog.
    * @author Roman Mazur (Stanfy - http://www.stanfy.com)
    */
-  public static class ErrorDialogFragment extends BaseDialogFragment<Application> {
+  public static class ErrorDialogFragment extends BaseDialogFragment {
 
     @Override
     public Dialog onCreateDialog(final Bundle savedInstanceState) {
-      return new AlertDialog.Builder(getOwnerActivity())
+      return new AlertDialog.Builder(getActivity())
         .setMessage(R.string.video_error)
         .setCancelable(false)
-        .setTitle(getOwnerActivity().getTitle())
+        .setTitle(getActivity().getTitle())
         .setPositiveButton(R.string.ok, null)
         .create();
     }
@@ -250,7 +249,7 @@ public class VideoPlayFragment extends BaseFragment<Application> implements OnPr
     @Override
     public void onDismiss(final DialogInterface dialog) {
       super.onDismiss(dialog);
-      getOwnerActivity().finish();
+      getActivity().finish();
     }
   }
 

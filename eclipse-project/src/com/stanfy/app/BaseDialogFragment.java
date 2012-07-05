@@ -5,17 +5,9 @@ import android.support.v4.app.DialogFragment;
 
 /**
  * Base dialog fragment.
- * @param <AT> application type
  * @author Roman Mazur (Stanfy - http://www.stanfy.com)
  */
-public class BaseDialogFragment<AT extends Application> extends DialogFragment {
-
-  /**
-   * @return owning fragment activity
-   * @see #getActivity()
-   */
-  @SuppressWarnings("unchecked")
-  protected BaseFragmentActivity<AT> getOwnerActivity() { return (BaseFragmentActivity<AT>)getActivity(); }
+public class BaseDialogFragment extends DialogFragment {
 
   /**
    * @see Activity#runOnUiThread(Runnable)
