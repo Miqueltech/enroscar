@@ -5,12 +5,13 @@
     This configuration file was written by the eclipse-cs plugin configuration editor
 -->
 <!--
-    Checkstyle-Configuration: Stanfy Android Checks
+    Checkstyle-Configuration: Stanfy Android checks
     Description: none
 -->
 <module name="Checker">
   <property name="severity" value="warning"/>
   <module name="TreeWalker">
+    <module name="FileContentsHolder"/>
     <module name="JavadocType"/>
     <module name="JavadocVariable"/>
     <module name="JavadocStyle"/>
@@ -114,6 +115,9 @@
       <property name="suppressLoadErrors" value="true"/>
       <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
+    <module name="DeclarationOrder">
+      <property name="ignoreModifiers" value="true"/>
+    </module>
   </module>
   <module name="JavadocPackage">
     <property name="severity" value="ignore"/>
@@ -123,4 +127,8 @@
   <module name="NewlineAtEndOfFile"/>
   <module name="Translation"/>
   <module name="FileTabCharacter"/>
+  <module name="SuppressionFilter">
+    <property name="file" value="${basedir}/checkstyle-suppress.xml"/>
+  </module>
+  <module name="SuppressionCommentFilter"/>
 </module>
