@@ -8,7 +8,7 @@ import com.stanfy.app.service.ApplicationService;
 import com.stanfy.serverapi.request.RequestDescription;
 
 /**
- * Requests performer for the server side.
+ * Requests performer that sends {@link RequestDescription} to the service as an {@link Intent}.
  * @author Roman Mazur (Stanfy - http://www.stanfy.com)
  */
 public class ServiceRequestPerformer implements RequestExecutor  {
@@ -22,13 +22,15 @@ public class ServiceRequestPerformer implements RequestExecutor  {
 
   @Override
   public int performRequest(final RequestDescription description) {
-    Class<?> serviceClass = BeansManager.get(context).getRemoteServerApiConfiguration().getApplicationServiceClass();
-    context.startService(
-        new Intent(context, serviceClass)
-        .setAction(ApplicationService.ACTION_SEND_REQUEST)
-        .putExtra(ApplicationService.EXTRA_REQUEST_DESCRIPTION, description)
-    );
+    context.startService(constructIntent(description));
     return description.getId();
+  }
+
+  public Intent constructIntent(final RequestDescription description) {
+    Class<?> serviceClass = BeansManager.get(context).getRemoteServerApiConfiguration().getApplicationServiceClass();
+    return new Intent(context, serviceClass)
+        .setAction(ApplicationService.ACTION_SEND_REQUEST)
+        .putExtra(ApplicationService.EXTRA_REQUEST_DESCRIPTION, description);
   }
 
 }
