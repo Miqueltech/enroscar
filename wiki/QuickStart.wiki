@@ -3,7 +3,7 @@
 
 = Declare application service =
 
-Put the following lines to yout AndroidManifest.xml file.
+Put the following lines to yout `AndroidManifest.xml` file.
 
 {{{
 	...
@@ -12,7 +12,7 @@ Put the following lines to yout AndroidManifest.xml file.
 	    ...
 
 	    <!-- Enroscar application service declaration. -->    
-	    <service
+        <service
             android:name="com.stanfy.app.service.ApplicationService"
             android:exported="false" >
             <intent-filter>
@@ -28,7 +28,7 @@ Put the following lines to yout AndroidManifest.xml file.
 
 = Use SimpleRequestBuilder =
 
-Use SimpleRequestBuilder for creating Android loader that uses the declared service for performing requests to the remote server API.
+Use `SimpleRequestBuilder` for creating Android loader that uses the declared service for performing requests to the remote server API.
 Please, go through [http://developer.android.com/guide/components/loaders.html Android loaders docs] to refresh in mind how to use loaders.
 
 {{{
