@@ -1,12 +1,5 @@
 #summary Sidebar navigation
 
- * [Summary Summary]
- * [Roadmap Roadmap]
- * Documentation
-   * [ProjectSetup Project Setup]
-   * [AbsIntegration ActionBarSherlock Integration]
-   * [ServerAPIRequestsInvocation Server API Requests Invocation]
-   * [CustomViews Custom Views Description]
-   * [NotificationBuilder Notification Builder]
+ * [QuickStart Quick Start]
  * [UsedSources Used Sources]
  
