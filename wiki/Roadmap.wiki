@@ -1,5 +1,5 @@
 #summary Our plans
-#labels Featured
+#labels Deprecated
 
 =Features=
 

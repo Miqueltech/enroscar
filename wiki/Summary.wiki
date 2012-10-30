@@ -1,5 +1,5 @@
 #summary Short description of main library features
-#labels Featured
+#labels Deprecated
 
 <wiki:toc max_depth="1" />
 

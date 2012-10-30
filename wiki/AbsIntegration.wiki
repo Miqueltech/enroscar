@@ -1,5 +1,5 @@
 #summary ActionBarSherlock integration
-#labels Featured
+#labels Deprecated
 
 = Integration with ActionBarSherlock library =
 

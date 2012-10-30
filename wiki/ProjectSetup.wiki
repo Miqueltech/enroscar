@@ -1,5 +1,5 @@
 #summary Quick start instructions how to setup Android application based on Enroscar library.
-#labels Featured
+#labels Deprecated
 
 *Contents*
 <wiki:toc max_depth="2" />
