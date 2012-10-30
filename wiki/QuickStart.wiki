@@ -3,7 +3,7 @@
 
 = Declare application service =
 
-Put the following lines to yout `AndroidManifest.xml` file.
+Put the following lines to your `AndroidManifest.xml` file.
 
 {{{
 	...
