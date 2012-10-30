@@ -26,7 +26,7 @@ Put the following lines to your `AndroidManifest.xml` file.
 
 }}}
 
-= Use SimpleRequestBuilder =
+= Use `SimpleRequestBuilder` =
 
 Use `SimpleRequestBuilder` for creating Android loader that uses the declared service for performing requests to the remote server API.
 Please, go through [http://developer.android.com/guide/components/loaders.html Android loaders docs] to refresh in mind how to use loaders.
