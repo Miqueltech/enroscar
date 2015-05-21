@@ -1,0 +1,2 @@
+The next diagram illustrates how server API requests are performed.
+![https://docs.google.com/drawings/pub?id=1JIjQBKF0XCfn8mDs9PU7omA596ecjrBi41oAyPuD0aE&w=1004&h=830&nosense=image.png](https://docs.google.com/drawings/pub?id=1JIjQBKF0XCfn8mDs9PU7omA596ecjrBi41oAyPuD0aE&w=1004&h=830&nosense=image.png)
